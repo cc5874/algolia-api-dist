@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algolia Search POC</title>
+    <!-- InstantSearch.js CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.css@8.5.1/themes/reset-min.css" integrity="sha256-KvFgFCzgqSErAPu6y9gz/AhZAvzK48VJASu3DpNLCEQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Algolia Search POC</h1>
+            <p>Search Algolia's product catalog</p>
+        </div>
+
+        <div class="search-container">
+            <div class="search-controls">
+                <input
+                    type="text"
+                    id="searchbox"
+                    placeholder="Search for anything..."
+                    autocomplete="off"
+                />
+                <select id="language-selector" class="language-selector">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                    <option value="jp">Japanese</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="results-container">
+            <div class="results-header">Search Results</div>
+            <div id="hits">
+                <div class="no-results">
+                    Start typing to search...
+                </div>
+            </div>
+            <!--
+            <div id="hits-en">
+                <div class="no-results">
+                    Start typing to search...
+                </div>
+            </div>
+            -->
+            <div class="stats" id="stats"></div>
+        </div>
+    </div>
+
+    <!-- Load Algolia libraries from CDN -->
+    <script src="//cdn.jsdelivr.net/npm/algoliasearch@5.32.0/dist/lite/builds/browser.umd.js" integrity="sha256-nnOvBr+/TkKwYUEly8E6rxPEpq699biJWUqbAWZMZr8=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.79.1/dist/instantsearch.production.min.js" integrity="sha256-IWP9784icM0SoZaK7sd7wk+YOFLDWv9rmaJcgLkgICQ=" crossorigin="anonymous"></script>
+
+    <!-- Load the search script -->
+    <script src="./search.js"></script>
+</body>
+</html>
