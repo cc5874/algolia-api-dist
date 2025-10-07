@@ -5,6 +5,9 @@
     // The CDN script exposes it as window["algoliasearch/lite"]
     const algoliasearchLite = window['algoliasearch/lite'];
     const algoliasearch = algoliasearchLite?.liteClient || algoliasearchLite;
+    // Replace with the name of your index.
+    const indexNamePrefix = 'research-poc';
+    const indexName = `${indexNamePrefix}-en`;
     if (typeof algoliasearch !== 'function') {
         throw new Error('algoliasearch function not found. Make sure the CDN script is loaded correctly.');
     }
@@ -17,8 +20,6 @@
             return;
         }
         // Render the InstantSearch.js wrapper
-        // Replace INDEX_NAME with the name of your index.
-        const indexName = 'test-index-en';
         const search = instantsearch({
             indexName,
             searchClient,
@@ -104,7 +105,7 @@
             languageSelector.addEventListener('change', event => {
                 const selectedLanguage = event.target.value;
                 // Update the search index based on language
-                const newIndexName = `test-index-${selectedLanguage}`;
+                const newIndexName = `${indexNamePrefix}-${selectedLanguage}`;
                 // Update the search instance with new index
                 if (search.helper) {
                     search.helper.setIndex(newIndexName).search();
