@@ -167,6 +167,48 @@
             display: none;
         }
 
+        /* Accordion styles for hit-debug */
+        .hit-debug {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #f8f9fa;
+            border: 1px solid #e1e8ed;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .hit-debug.active {
+            max-height: 1000px;
+            padding: 0.75rem;
+        }
+
+        .hit-debug-toggle {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .hit-debug-toggle:hover {
+            background: #2980b9;
+        }
+
+        .hit-debug-toggle:active {
+            background: #21618c;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;

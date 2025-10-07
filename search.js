@@ -44,8 +44,10 @@
                 templates: {
                     item: (hit) => `
           <div class="hit">
-            <div class="hit-title">${hit.objectID}</div>
-            <div class="hit-description">${JSON.stringify(hit)}</div>
+            <div class="hit-title">${hit.name}</div>
+            <div class="hit-description">${hit.description}</div>
+            <button class="hit-debug-toggle" onclick="toggleDebug(this)">Show raw</button>
+            <div class="hit-debug">${JSON.stringify(hit, null, 2)}</div>
           </div>
         `,
                     empty: (data) => {
@@ -113,6 +115,16 @@
             });
         }
     });
+    // Global function to toggle debug information
+    window.toggleDebug = function (button) {
+        const debugElement = button.nextElementSibling;
+        if (debugElement && debugElement.classList.contains('hit-debug')) {
+            debugElement.classList.toggle('active');
+            button.textContent = debugElement.classList.contains('active')
+                ? 'Hide raw'
+                : 'Show raw';
+        }
+    };
 
 })();
 //# sourceMappingURL=search.js.map
